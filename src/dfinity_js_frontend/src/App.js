@@ -12,6 +12,8 @@ import Header from "./components/marketplace/Header";
 import CourseList from "./components/marketplace/CourseList";
 // import AddCourseForm from "./components/AddCourseForm";
 import AddCourseForm from "./components/marketplace/AddCourseForm";
+import MyCourseList from "./components/marketplace/MyCourseList";
+import MyEnrollments from "./components/marketplace/MyEnrollments";
 
 
 const App = function AppWrapper() {
@@ -50,6 +52,8 @@ const App = function AppWrapper() {
                         <Header />
                         <AddCourseForm />
                         <CourseList />
+                        <MyCourseList />
+                        <MyEnrollments />
                     </main>
                 </Container>
             ) : (

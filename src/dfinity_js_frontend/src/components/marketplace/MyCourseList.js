@@ -34,25 +34,30 @@ const MyCourseList = () => {
     <div className="container mt-5">
       <h2 className="mb-5 text-primary fw-bold">My Courses</h2>
       <div className="row row-cols-1 row-cols-md-3 g-4">
-        {/* Map over the courses array and display each course */}
-        {courses.map((course) => (
-          <div key={course.id} className="col">
-            <div className="card shadow">
-              <img src={generateRandomImage(course.title)} className="card-img-top" alt="Course" />
-              <div className="card-body">
-                <h5 className="card-title">{course.title}</h5>
-                <p className="card-text">{course.description}</p>
-                <p className="card-text">Duration: {Number(course.duration)} seconds</p>
-                <p className="card-text">Prerequisites: {course.prerequisites.join(", ")}</p>
-                <p className="card-text">Price: {Number(course.price)}</p>
-                <p className="card-text">Skill Level: {course.skillLevel}</p>
+        {/* Check if courses array exists and has elements before mapping */}
+        {courses && courses.length > 0 ? (
+          courses.map((course) => (
+            <div key={course.id} className="col">
+              <div className="card shadow">
+                <img src={generateRandomImage(course.title)} className="card-img-top" alt="Course" />
+                <div className="card-body">
+                  <h5 className="card-title">{course.title}</h5>
+                  <p className="card-text">{course.description}</p>
+                  <p className="card-text">Duration: {Number(course.duration)} seconds</p>
+                  <p className="card-text">Prerequisites: {course.prerequisites.join(", ")}</p>
+                  <p className="card-text">Price: {Number(course.price)}</p>
+                  <p className="card-text">Skill Level: {course.skillLevel}</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p>No courses found</p>
+        )}
       </div>
     </div>
   );
+  
 };
 
 export default MyCourseList;

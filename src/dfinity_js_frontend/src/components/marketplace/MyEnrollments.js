@@ -35,7 +35,7 @@ const MyEnrollments = () => {
       <div className="row row-cols-1 row-cols-md-3 g-4">
         {/* Check if courses array exists and has elements before mapping */}
         {courses && courses.length > 0 ? (
-          courses.Ok.map((course) => (
+          courses.map((course) => (
             <div key={course.id} className="col">
               <div className="card shadow">
                 <img src={generateRandomImage(course.title)} className="card-img-top" alt="Course" />

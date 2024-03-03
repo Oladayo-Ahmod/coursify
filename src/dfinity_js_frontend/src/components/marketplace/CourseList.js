@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getCourses, enrollCourse,getUserCreatedCourses , getUserEnrolledCourses} from "../../utils/courseCanister";
+import { getCourses, enrollCourse} from "../../utils/courseCanister";
 import Swal from "sweetalert2";
 
 const CourseList = () => {
@@ -14,13 +14,9 @@ const CourseList = () => {
   // Function to fetch courses from the backend
   const fetchCourses = async () => {
     try {
-      const test1 = await getUserCreatedCourses()
-      console.log(test1,'create');
-      const test2 = await getUserEnrolledCourses()
-      console.log(test2,'enrol');
       const coursesData = await getCourses();
-      console.log(coursesData);
       setCourses(coursesData);
+      console.log(coursesData);
     } catch (error) {
       console.error("Error fetching courses:", error);
     }

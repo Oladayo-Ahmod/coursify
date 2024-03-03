@@ -14,8 +14,7 @@ const MyCourseList = () => {
   const fetchCourses = async () => {
     try {
       const coursesData = await getUserCreatedCourses();
-      console.log(coursesData);
-      setCourses(coursesData);
+      setCourses(coursesData.Ok);
     } catch (error) {
       console.error("Error fetching courses:", error);
     }

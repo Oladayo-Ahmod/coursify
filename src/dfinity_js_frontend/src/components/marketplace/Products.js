@@ -9,7 +9,7 @@ import { NotificationSuccess, NotificationError } from "../utils/Notifications";
 import {
   getProducts as getProductList,
   createProduct, buyProduct
-} from "../../utils/marketplace";
+} from "../../utils/courseCanister";
 
 const Products = () => {
   const [products, setProducts] = useState([]);

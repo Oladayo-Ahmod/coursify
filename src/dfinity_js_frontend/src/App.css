@@ -1,3 +1,9 @@
+body{
+  height: 100vh;
+  color :white;
+  background: url('https://media.istockphoto.com/id/1396387322/photo/woman-working-in-the-office.jpg?s=2048x2048&w=is&k=20&c=JdUDb9XWSTsgH5T3K4QpNybaetHrzUe9-2qJ8WdH2kE=') no-repeat;
+}
+
 .cover {
   background-image: radial-gradient( circle farthest-corner at 10% 20%,
   #35D07F 0%, #2aa666 47.7%, #207d4c 92.3% );
@@ -5,4 +11,15 @@
 }
 .vh-80 {
   height: 80vh!important;
+}
+.header{
+  background: lavender;
+}
+.btn-container{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+label{
+  color: darkgrey;
 }

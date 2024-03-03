@@ -1,6 +1,6 @@
 import React, { useEffect, useCallback, useState } from "react";
 import { Container, Nav } from "react-bootstrap";
-import Products from "./components/marketplace/Products";
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
 import Wallet from "./components/Wallet";
 import coverImg from "./assets/img/sandwich.jpg";
@@ -8,6 +8,10 @@ import { login, logout as destroy } from "./utils/auth";
 import { balance as principalBalance } from "./utils/ledger"
 import Cover from "./components/utils/Cover";
 import { Notification } from "./components/utils/Notifications";
+import Header from "./components/marketplace/Header";
+import CourseList from "./components/marketplace/CourseList";
+// import AddCourseForm from "./components/AddCourseForm";
+import AddCourseForm from "./components/marketplace/AddCourseForm";
 
 
 const App = function AppWrapper() {
@@ -43,11 +47,13 @@ const App = function AppWrapper() {
                         </Nav.Item>
                     </Nav>
                     <main>
-                        <Products />
+                        <Header />
+                        <AddCourseForm />
+                        <CourseList />
                     </main>
                 </Container>
             ) : (
-                <Cover name="Street Food" login={login} coverImg={coverImg} />
+                <Cover name="Street Foods" login={login} coverImg={coverImg} />
             )}
         </>
     );

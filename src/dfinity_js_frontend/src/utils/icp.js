@@ -12,4 +12,6 @@ export async function initializeContract() {
     window.auth.principalText = authClient.getIdentity()?.getPrincipal().toText();
     window.canister.marketplace = await getMarketplaceCanister();
     window.canister.ledger = await getLedgerCanister();
+    console.log( window.canister.marketplace)
+
 }

@@ -1,14 +1,10 @@
 service: () -> {
-    addProduct: (record {attachmentURL:text; title:text; description:text; price:nat64; location:text}) -> (variant {Ok:record {id:text; attachmentURL:text; title:text; soldAmount:nat64; description:text; seller:principal; price:nat64; location:text}; Err:variant {PaymentFailed:text; InvalidPayload:text; NotFound:text; PaymentCompleted:text}});
-    completePurchase: (principal, text, nat64, nat64, nat64) -> (variant {Ok:record {status:variant {PaymentPending:text; Completed:text}; memo:nat64; productId:text; seller:principal; price:nat64; paid_at_block:opt nat64}; Err:variant {PaymentFailed:text; InvalidPayload:text; NotFound:text; PaymentCompleted:text}});
-    createOrder: (text) -> (variant {Ok:record {status:variant {PaymentPending:text; Completed:text}; memo:nat64; productId:text; seller:principal; price:nat64; paid_at_block:opt nat64}; Err:variant {PaymentFailed:text; InvalidPayload:text; NotFound:text; PaymentCompleted:text}});
-    deleteProduct: (text) -> (variant {Ok:text; Err:variant {PaymentFailed:text; InvalidPayload:text; NotFound:text; PaymentCompleted:text}});
-    getAddressFromPrincipal: (principal) -> (text) query;
-    getOrders: () -> (vec record {status:variant {PaymentPending:text; Completed:text}; memo:nat64; productId:text; seller:principal; price:nat64; paid_at_block:opt nat64}) query;
-    getPendingOrders: () -> (vec record {status:variant {PaymentPending:text; Completed:text}; memo:nat64; productId:text; seller:principal; price:nat64; paid_at_block:opt nat64}) query;
-    getProduct: (text) -> (variant {Ok:record {id:text; attachmentURL:text; title:text; soldAmount:nat64; description:text; seller:principal; price:nat64; location:text}; Err:variant {PaymentFailed:text; InvalidPayload:text; NotFound:text; PaymentCompleted:text}}) query;
-    getProducts: () -> (vec record {id:text; attachmentURL:text; title:text; soldAmount:nat64; description:text; seller:principal; price:nat64; location:text}) query;
-    makePayment: (text, nat64) -> (variant {Ok:variant {PaymentFailed:text; InvalidPayload:text; NotFound:text; PaymentCompleted:text}; Err:variant {PaymentFailed:text; InvalidPayload:text; NotFound:text; PaymentCompleted:text}});
-    updateProduct: (record {id:text; attachmentURL:text; title:text; soldAmount:nat64; description:text; seller:principal; price:nat64; location:text}) -> (variant {Ok:record {id:text; attachmentURL:text; title:text; soldAmount:nat64; description:text; seller:principal; price:nat64; location:text}; Err:variant {PaymentFailed:text; InvalidPayload:text; NotFound:text; PaymentCompleted:text}});
-    verifyPayment: (principal, nat64, nat64, nat64) -> (bool) query;
+    addCourse: (record {title:text; duration:nat64; prerequisites:vec text; description:text; skillLevel:text; price:nat64}) -> (variant {Ok:text; Err:variant {PaymentFailed:text; InvalidPayload:text; NotFound:text; PaymentCompleted:text}});
+    buyCourse: (text) -> (variant {Ok:text; Err:variant {PaymentFailed:text; InvalidPayload:text; NotFound:text; PaymentCompleted:text}});
+    enrollCourse: (text) -> (variant {Ok:text; Err:variant {PaymentFailed:text; InvalidPayload:text; NotFound:text; PaymentCompleted:text}});
+    getCourse: (text) -> (variant {Ok:record {id:text; title:text; duration:nat64; students:vec principal; prerequisites:vec text; instructor:principal; description:text; skillLevel:text; price:nat64}; Err:variant {PaymentFailed:text; InvalidPayload:text; NotFound:text; PaymentCompleted:text}}) query;
+    getCourses: () -> (vec record {id:text; title:text; duration:nat64; students:vec principal; prerequisites:vec text; instructor:principal; description:text; skillLevel:text; price:nat64}) query;
+    getUserCreatedCourses: () -> (variant {Ok:vec record {id:text; title:text; duration:nat64; students:vec principal; prerequisites:vec text; instructor:principal; description:text; skillLevel:text; price:nat64}; Err:variant {PaymentFailed:text; InvalidPayload:text; NotFound:text; PaymentCompleted:text}}) query;
+    getUserEnrolledCourses: () -> (variant {Ok:vec record {id:text; title:text; duration:nat64; students:vec principal; prerequisites:vec text; instructor:principal; description:text; skillLevel:text; price:nat64}; Err:variant {PaymentFailed:text; InvalidPayload:text; NotFound:text; PaymentCompleted:text}}) query;
+    unenrollCourse: (text) -> (variant {Ok:text; Err:variant {PaymentFailed:text; InvalidPayload:text; NotFound:text; PaymentCompleted:text}});
 }
